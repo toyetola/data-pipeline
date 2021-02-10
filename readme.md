@@ -3,7 +3,7 @@
 
 The architecture design for this pipeline namde _**pipeline-architecture.jpg**_ is present in the root folder of the sent zip file. It shows how the pipeline is able to process the inputs and give the desired output.
 
-This solution is available on [THIS REPOSITORY](https://github.com/toyetola/trivago)
+<!-- This solution is available on [THIS REPOSITORY](https://github.com/toyetola/trivago) -->
 
 ![Pipeline Ideal Architecture](pipeline-architecture.jpg)
 
@@ -19,7 +19,7 @@ I have to main files:
  * _**import.py**_
  * _**consolidation.py**_
 
- The [ _**import.py**_] (https://github.com/toyetola/trivago-test/blob/master/import.py) file is to help automate importing data to Google Cloud storage bucket. Basically help to collect file via its path from your local terminal 
+ The [ _**import.py**_](import.py) file is to help automate importing data to Google Cloud storage bucket. Basically help to collect file via its path from your local terminal 
 
  - You might want to install [virtualenv](https://realpython.com/python-virtual-environments-a-primer/) to run these files
  - You also need a google account and have acess to console.cloud.google.com
@@ -44,7 +44,7 @@ partnerList = ["Partner_A", "Partner_B", "Partner_C", "Partner_D", "Partner_E",
 ```
 First is the function to consolidate : gets the file from a storage bucket and opens it up, rearrange based on priorities of the appearance of each Partner on the partners list and run the data cleaning block then output the reuired format. It like the near top level code.
 
-Get details about this function here https://github.com/toyetola/trivago-test/blob/master/consolidation.py
+Get details about this function here [__**consolidation.py**__](consolidation.py)
 
 ```
 consolidate(documentPath, partnerList)
@@ -68,7 +68,7 @@ This writes the cleaned data to a file and push to new output sbucket.
 outputToFile(consolidatedData)
 ```
 
-You could USE the GUI Cloud function to create the function in Google cloud console and paste https://github.com/toyetola/trivago-test/blob/master/consolidation.py in main.py
+You could USE the GUI Cloud function to create the function in Google cloud console and paste consolidation.py in main.py
 
 Deploy to run.
 
