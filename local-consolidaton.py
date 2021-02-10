@@ -17,14 +17,14 @@ from datetime import datetime
 partnerList = ["Partner_A", "Partner_B", "Partner_C", "Partner_D", "Partner_E",
                "Partner_F", "Partner_G", "Partner_H", "Partner_I", "Partner_J",
                "Partner_K", "Partner_L", "Partner_M", "Partner_N", "Partner_O"]
-holdTempData = [] #temporary storage
-finalList = [] #takes the cleanData
+holdTempData = []
+finalList = []
 
-#documentPath = input("Please provide the url to your input file: ")
-#run: this is the netry point for cloud function
+documentPath = input("Please provide the url to your input file: ")
+#run: this is the entry point for cloud function
 
-def gcs(event):
-    documentPath = event['name']
+def gcs(documentPath):
+    #documentPath = event['name']
     dataFileForOutput = consolidate(documentPath, partnerList)
     if len(dataFileForOutput) > 0 :
        outputToFile(dataFileForOutput)
@@ -114,6 +114,8 @@ def outputToFile(consolidatedData):
         blob.make_public()
         url = blob.public_url
         print("File {} uploaded to {}".format(f.name, destination_filepath))
+
+gcs(documentPath)
 
 
 
